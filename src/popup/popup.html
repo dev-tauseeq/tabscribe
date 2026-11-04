@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meeting Recorder</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Meeting Recorder</h1>
+        <button id="open-settings" class="link" type="button">Settings</button>
+      </header>
+
+      <ul id="issues" class="issues" hidden></ul>
+
+      <section class="control">
+        <div id="start-options" class="start-options">
+          <label for="recording-name">Recording name</label>
+          <input id="recording-name" type="text" maxlength="80" placeholder="Date and time when empty" autocomplete="off" spellcheck="false" />
+          <label class="check"><input id="include-mic" type="checkbox" /> Include my microphone</label>
+          <label class="check"><input id="transcribe" type="checkbox" /> Transcript, summary and action items</label>
+          <p id="transcribe-hint" class="hint" hidden>Set up the Claude Code helper in Settings to get a transcript and notes.</p>
+          <p id="save-hint" class="hint"></p>
+        </div>
+        <button id="toggle" class="primary" type="button">Start recording</button>
+        <p id="timer" class="timer" hidden></p>
+        <p id="notice" class="notice" role="status" hidden></p>
+      </section>
+
+      <section id="pending" class="pending" hidden>
+        <p id="pending-text"></p>
+        <button id="pending-action" type="button">Save again</button>
+      </section>
+
+      <section>
+        <h2>Recent meetings</h2>
+        <ul id="meetings" class="meetings"></ul>
+      </section>
+    </main>
+    <script type="module" src="./popup.ts"></script>
+  </body>
+</html>

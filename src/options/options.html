@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meeting Recorder settings</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Meeting Recorder settings</h1>
+
+      <section>
+        <h2>Claude Code helper</h2>
+        <p id="helper-status">Checking the helper...</p>
+        <ul id="helper-problems" class="problems" hidden></ul>
+        <div id="helper-setup" class="setup" hidden>
+          <p>
+            In Terminal, open the meeting-recorder folder and run <code>npm run setup</code>. It installs whisper.cpp,
+            downloads the speech model and connects the helper to this extension. Then reload the extension on
+            <code>chrome://extensions</code>.
+          </p>
+          <p class="hint">
+            If the extension is loaded from another folder, run
+            <code>npm run setup -- --extension-id <span id="extension-id"></span></code>
+          </p>
+        </div>
+        <button id="check-helper" type="button">Check again</button>
+        <p class="hint">
+          Whisper turns the speech into text on this Mac, and the audio never leaves it. Claude Code then translates
+          the transcript into English when needed and writes the summary and action items, using the account you are
+          signed in to with <code>claude</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Save folder</h2>
+        <label for="save-directory">Folder</label>
+        <div class="row">
+          <input id="save-directory" type="text" spellcheck="false" placeholder="Downloads/Audio Recordings" />
+          <button id="choose-folder" type="button" disabled>Choose...</button>
+        </div>
+        <p class="hint">
+          Each meeting gets its own folder inside this one. Leave it empty to save in Downloads/Audio Recordings.
+          Other folders need the helper.
+        </p>
+      </section>
+
+      <section>
+        <h2>Microphone</h2>
+        <p id="mic-status"></p>
+        <button id="allow-mic" type="button">Allow microphone</button>
+        <p class="hint">
+          To record your own voice, tick Include my microphone in the popup before you start. The recorder runs in a
+          hidden page that cannot ask for permission, so allow it here once.
+        </p>
+      </section>
+
+      <section>
+        <h2>Summary and action items</h2>
+        <label for="model">Claude model</label>
+        <input id="model" list="models" spellcheck="false" />
+        <datalist id="models">
+          <option value="claude-opus-5-5"></option>
+          <option value="claude-sonnet-5-5"></option>
+          <option value="claude-haiku-5-5"></option>
+        </datalist>
+        <p class="hint">Any model name Claude Code accepts. It is also used to translate the transcript.</p>
+        <label for="prompt">Instructions</label>
+        <textarea id="prompt" rows="14" spellcheck="false"></textarea>
+        <button id="reset-prompt" type="button">Reset instructions</button>
+      </section>
+
+      <div class="actions">
+        <button id="save" class="primary" type="button">Save settings</button>
+        <span id="saved" role="status"></span>
+      </div>
+    </main>
+    <script type="module" src="./options.ts"></script>
+  </body>
+</html>

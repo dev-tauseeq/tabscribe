@@ -1,0 +1,23 @@
+{
+  "name": "meeting-recorder",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome extension that records a meeting tab and microphone to MP3, then saves a transcript, a summary and action items.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "setup": "node native-host/setup.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@breezystack/lamejs": "^1.2.7"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^3.0.0",
+    "@types/chrome": "^0.3.7",
+    "@types/wicg-file-system-access": "^2023.10.7",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.5"
+  }
+}

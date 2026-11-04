@@ -1,0 +1,143 @@
+body {
+  width: 360px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 15px;
+}
+
+h2 {
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.issues {
+  margin: 0;
+  padding: 8px 10px 8px 26px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn-fg);
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.start-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.start-options label {
+  font-weight: 600;
+}
+
+.start-options label.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.control > button {
+  padding: 11px 12px;
+  font-size: 14px;
+}
+
+.timer {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.notice {
+  color: var(--error-fg);
+}
+
+.pending {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 8px;
+  background: var(--warn-bg);
+  color: var(--warn-fg);
+}
+
+.pending button {
+  align-self: flex-start;
+}
+
+.meetings {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.meeting {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.meeting.error {
+  border-color: var(--error-fg);
+}
+
+.meeting-title {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meeting-meta,
+.meeting-folder {
+  color: var(--muted);
+}
+
+.meeting-error {
+  color: var(--error-fg);
+}
+
+.meeting-warning {
+  color: var(--warn-fg);
+}
+
+.meeting-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.meeting button {
+  padding: 4px 10px;
+}
+
+.empty {
+  color: var(--muted);
+}
